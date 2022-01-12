@@ -27,7 +27,7 @@ async def on_message(message):
             await message.channel.send("Invalid input, try again")
           else:  
             print("Invoking API")
-            # Somehow, this refuses to work unless you put the api key in as a string
+            # Somehow, this refuses to work unless you put the secret key in as a string
             response = requests.get(endpoint + "search/" + keywords[2],
                                     auth = HTTPBasicAuth('rttapi_dfgHiatus', '2d5f33850a19f59bc597b65ba2052f21810544f1'))
             status_code = response.status_code
