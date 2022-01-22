@@ -28,7 +28,6 @@ async def on_message(message):
     if message.content.startswith('!search'):
         try:
           print("Starting search...")
-          # Mildly cursed message assertion
           # ['!search',' ','BMH', ' ', ...]
           keywords = re.split("( )", message.content)
           # ['!search','BMH']
