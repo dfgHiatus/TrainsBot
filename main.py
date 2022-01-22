@@ -36,7 +36,6 @@ async def on_message(message):
             keywords.remove(" ")
           while (keywords.count("")):
             keywords.remove("")
-          print(keywords)
           if len(keywords) != 2:
             await message.channel.send("Invalid input, try again")
           else:  
