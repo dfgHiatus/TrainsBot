@@ -28,14 +28,17 @@ async def on_message(message):
     if message.content.startswith('!search'):
         try:
           print("Starting search...")
-          # Mildly cursed message assertion ['!search','','BMH']
+          # Mildly cursed message assertion
+          # ['!search',' ','BMH', ' ', ...]
           keywords = re.split("( )", message.content)
-          if len(keywords) != 3:
+          # ['!search','BMH']
+          keywords = [elem for elem in keywords if elem != " "]
+          if len(keywords) != 2:
             await message.channel.send("Invalid input, try again")
           else:  
             print("Invoking API")
-            print(endpoint + keywords[2])
-            response = requests.get(endpoint + keywords[2],
+            print(endpoint + keywords[1])
+            response = requests.get(endpoint + keywords[1],
                         auth = HTTPBasicAuth(username, password))
             if (response.status_code == 200):
               response = json.loads(response.text)
