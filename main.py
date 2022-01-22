@@ -32,7 +32,11 @@ async def on_message(message):
           # ['!search',' ','BMH', ' ', ...]
           keywords = re.split("( )", message.content)
           # ['!search','BMH']
-          keywords = [elem for elem in keywords if elem != " "]
+          while (keywords.count(" ")):
+            keywords.remove(" ")
+          while (keywords.count("")):
+            keywords.remove("")
+          print(keywords)
           if len(keywords) != 2:
             await message.channel.send("Invalid input, try again")
           else:  
